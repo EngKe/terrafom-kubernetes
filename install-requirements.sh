@@ -15,7 +15,7 @@ sudo curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://pack
 echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
 sudo apt-get update
 sudo apt-get install -y kubectl
-echo -e '\e[1;31m**********kubectl installed**********'
+echo -e '\e[1;31m**********kubectl installed**********\033[0m'
 
 }
 
@@ -36,7 +36,7 @@ sudo apt-get update
 sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin
 sudo usermod -aG docker $USER
 newgrp docker
-echo -e '\e[1;31m**********docker installed**********'
+echo -e '\e[1;31m**********docker installed**********\033[0m'
 
 }
 
@@ -47,7 +47,7 @@ sudo apt-get install apt-transport-https --yes
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/helm.gpg] https://baltocdn.com/helm/stable/debian/ all main" | sudo tee /etc/apt/sources.list.d/helm-stable-debian.list
 sudo apt-get update
 sudo apt-get install helm
-echo -e '\e[1;31m**********helm installed*********'
+echo -e '\e[1;31m**********helm installed*********\033[0m'
 }
 
 install_kind(){
@@ -55,7 +55,7 @@ install_kind(){
 curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.16.0/kind-linux-amd64
 chmod +x ./kind
 sudo mv ./kind /usr/local/bin/kind
-echo -e '\e[1;31m**********kind installed*********'
+echo -e '\e[1;31m**********kind installed*********\033[0m'
 }
 
 install_terraform(){
@@ -69,7 +69,7 @@ echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] \
     sudo tee /etc/apt/sources.list.d/hashicorp.list
 sudo apt update
 sudo apt-get install terraform
-echo -e '\e[1;31m**********terraform installed*********'
+echo -e '\e[1;31m**********terraform installed*********\033[0m'
 }
 
 install_postgresql(){
@@ -79,7 +79,7 @@ wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-
 sudo apt-get update
 sudo apt-get -y install postgresql
 
-echo -e '\e[1;31m**********postgresql installed*********'
+echo -e '\e[1;31m**********postgresql installed*********\033[0m'
 }
 
 
