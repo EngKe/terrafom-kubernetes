@@ -3,7 +3,7 @@
 install_wget(){
 
 sudo apt-get update
-apt-get install wget
+sudo apt-get install wget
 
 }
 
@@ -18,10 +18,7 @@ echo '**********vagrant installed*********'
 
 install_virtualbox(){
 
-deb [arch=amd64 signed-by=/usr/share/keyrings/oracle-virtualbox-2016.gpg] https://download.virtualbox.org/virtualbox/debian 'bullseye' contrib
-wget -O- https://www.virtualbox.org/download/oracle_vbox_2016.asc | sudo gpg --dearmor --yes --output /usr/share/keyrings/oracle-virtualbox-2016.gpg
-sudo apt-get update
-sudo apt-get install virtualbox-6.1
+sudo apt install -y virtualbox
 
 }
 
@@ -34,3 +31,5 @@ vagrant ssh node-1
 
 install_wget
 install_vagrant
+install_virtualbox
+vagrant_up
