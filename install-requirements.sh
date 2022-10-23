@@ -72,9 +72,22 @@ sudo apt-get install terraform
 echo -e '\e[1;31m**********terraform installed*********'
 }
 
+install_postgresql(){
+
+sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
+wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+sudo apt-get update
+sudo apt-get -y install postgresql
+
+echo -e '\e[1;31m**********postgresql installed*********'
+}
+
+
+
 install_wget
 install_kubectl
 install_helm
 install_docker
 install_kind
 install_terraform
+install_postgresql
