@@ -14,6 +14,9 @@ Vagrant.configure("2") do |config|
     config.vm.provision "shell", path: "install-requirements.sh"
     config.vm.provision "file", source: "kind-cluster.tf", destination: "$HOME/"
     config.vm.provision "shell", path: "create-cluster.sh"
+    config.vm.provision "file", source: "backup.sh", destination: "$HOME/"
+    config.vm.provision "file", source: "redis-test.sh", destination: "$HOME/"
+    config.vm.provision "shell", path: "database-infrastructures.sh"
         end
     end
 end

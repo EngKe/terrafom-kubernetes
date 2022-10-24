@@ -35,7 +35,7 @@ echo \
 sudo apt-get update
 sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin
 sudo usermod -aG docker $USER
-newgrp docker
+su - $USER
 echo -e '\e[1;31m**********docker installed**********\033[0m'
 
 }
@@ -47,6 +47,8 @@ sudo apt-get install apt-transport-https --yes
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/helm.gpg] https://baltocdn.com/helm/stable/debian/ all main" | sudo tee /etc/apt/sources.list.d/helm-stable-debian.list
 sudo apt-get update
 sudo apt-get install helm
+helm repo add bitnami https://charts.bitnami.com/bitnami
+helm repo update
 echo -e '\e[1;31m**********helm installed*********\033[0m'
 }
 
@@ -82,12 +84,20 @@ sudo apt-get -y install postgresql
 echo -e '\e[1;31m**********postgresql installed*********\033[0m'
 }
 
+install_redis(){
 
+curl -fsSL https://packages.redis.io/gpg | sudo gpg --dearmor -o /usr/share/keyrings/redis-archive-keyring.gpg
+echo "deb [signed-by=/usr/share/keyrings/redis-archive-keyring.gpg] https://packages.redis.io/deb $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/redis.list
+sudo apt-get update
+sudo apt-get install -y redis
+
+}
 
 install_wget
 install_kubectl
 install_helm
-install_docker
 install_kind
 install_terraform
 install_postgresql
+install_docker
+install_redis
