@@ -1,6 +1,6 @@
 install_jenkinscli(){
 
-
+wget http://localhost:8080/jnlpJars/jenkins-cli.jar
 
 }
 
