@@ -20,9 +20,9 @@ sudo systemctl enable jenkins
 configure_jenkins(){
 
 sudo mkdir /var/lib/jenkins/init.groovy.d
-sudo cp $HOME/create-admin.groovy /var/lib/jenkins/init.groovy.d/
-sudo cp $HOME/install-plugins.groovy /var/lib/jenkins/init.groovy.d/
-sudo cp $HOME/unlock-jenkins.groovy /var/lib/jenkins/init.groovy.d/
+sudo cp create-admin.groovy /var/lib/jenkins/init.groovy.d/
+sudo cp install-plugins.groovy /var/lib/jenkins/init.groovy.d/
+sudo cp unlock-jenkins.groovy /var/lib/jenkins/init.groovy.d/
 
 sudo systemctl restart jenkins
 
