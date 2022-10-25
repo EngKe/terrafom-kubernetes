@@ -1,0 +1,26 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<flow-definition plugin="workflow-job@1249.v7d974144cc14">
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties/>
+  <definition class="org.jenkinsci.plugins.workflow.cps.CpsFlowDefinition" plugin="workflow-cps@2803.v1a_f77ffcc773">
+    <script>pipeline {
+    agent any
+
+    stages {
+        stage(&apos;Deploy&apos;) {
+            steps {
+                sh &apos;helm install postgresql bitnami/postgresql&apos;
+                sh &apos;kubectl port-forward --namespace default svc/postgresql 5432:5432 &amp;&apos;
+                sh &apos;helm install redis bitnami/redis&apos;
+                sh &apos;kubectl port-forward --namespace default svc/redis-master 6379:6379 &amp;&apos;
+                sh &apos;**********app deployed**********&apos;
+            }
+        }
+    }
+}</script>
+    <sandbox>true</sandbox>
+  </definition>
+  <triggers/>
+  <disabled>false</disabled>
+</flow-definition>

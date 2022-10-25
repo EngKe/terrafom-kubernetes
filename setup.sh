@@ -30,7 +30,7 @@ sudo apt install -y virtualbox
 vagrant_up(){
 
 vagrant up
-vagrant ssh node-1
+vagrant ssh
 
 }
 
