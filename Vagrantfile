@@ -10,7 +10,6 @@ Vagrant.configure("2") do |config|
     end
     config.vm.provision "file", source: "terraform/kind-cluster.tf", destination: "$HOME/"
     config.vm.provision "file", source: "database/backup.sh", destination: "$HOME/"
-    config.vm.provision "file", source: "redis-test.sh", destination: "$HOME/"
     config.vm.provision "file", source: "jenkins/unlock-jenkins.groovy", destination: "$HOME/"
     config.vm.provision "file", source: "jenkins/create-admin.groovy", destination: "$HOME/"
     config.vm.provision "file", source: "jenkins/install-plugins.groovy", destination: "$HOME/"
