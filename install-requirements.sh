@@ -91,8 +91,8 @@ sudo apt-get -y install postgresql
 echo -e '\e[1;31m**********postgresql installed*********\033[0m'
 
 sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin
-sudo usermod -aG docker $USER
-sudo su - $USER
+sudo apt-get install -y uidmap
+dockerd-rootless-setuptool.sh install
 echo -e '\e[1;31m**********docker installed**********\033[0m'
 
 sudo apt-get install -y redis
