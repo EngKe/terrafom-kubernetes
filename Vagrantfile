@@ -15,7 +15,7 @@ Vagrant.configure("2") do |config|
     config.vm.provision "file", source: "jenkins/install-plugins.groovy", destination: "$HOME/"
     config.vm.provision "file", source: "jenkins/pipeline.xml", destination: "$HOME/"
     config.vm.provision "file", source: "database/postgresql-test.sh", destination: "$HOME/"
-    config.vm.provision "file", source: "database/redis-test", destination: "$HOME/"
+    config.vm.provision "file", source: "database/redis-test.sh", destination: "$HOME/"
 
     config.vm.provision "shell", path: "install-requirements.sh"
     config.vm.provision "shell", path: "terraform/create-cluster.sh"

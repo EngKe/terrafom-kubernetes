@@ -29,7 +29,7 @@ sudo cp 01-unlock-jenkins.groovy /var/lib/jenkins/init.groovy.d/
 sudo systemctl restart jenkins
 sudo systemctl stop jenkins
 sudo systemctl start jenkins
-
+echo '**********jenkins configured**********'
 }
 
 install_jenkins
