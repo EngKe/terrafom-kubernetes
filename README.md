@@ -1,1 +1,1 @@
-# terrafom-kubernetes
+# terraform-kubernetes
