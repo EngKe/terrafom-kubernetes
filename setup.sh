@@ -34,6 +34,6 @@ vagrant ssh
 }
 
 install_wget
-install_vagrant
 install_virtualbox
+install_vagrant
 vagrant_up
