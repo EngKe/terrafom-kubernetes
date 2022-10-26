@@ -10,9 +10,9 @@
     stages {
         stage(&apos;Deploy&apos;) {
             steps {
-                sh &apos;helm install postgresql bitnami/postgresql&apos;
+                sh &apos;helm upgrade --install postgresql bitnami/postgresql&apos;
                 sh &apos;kubectl port-forward --namespace default svc/postgresql 5432:5432 &amp;&apos;
-                sh &apos;helm install redis bitnami/redis&apos;
+                sh &apos;helm upgrade --install redis bitnami/redis&apos;
                 sh &apos;kubectl port-forward --namespace default svc/redis-master 6379:6379 &amp;&apos;
                 sh &apos;**********app deployed**********&apos;
             }

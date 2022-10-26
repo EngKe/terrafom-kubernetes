@@ -10,7 +10,11 @@ echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] https://pkg.jenkins
 sudo apt-get update
 sudo apt-get install -y jenkins
 
-sudo systemctl start jenkins
+sudo mkdir /etc/systemd/system/jenkins.service.d
+echo -e "[Service]\nTimeoutStartSec=300" | sudo tee /etc/systemd/system/jenkins.service.d/startup-timeout.conf
+
+sudo systemctl daemon-reload
+sudo systemctl restart jenkins
 sudo systemctl enable jenkins
 echo '**********jenkins installed**********'
 }
@@ -18,9 +22,9 @@ echo '**********jenkins installed**********'
 configure_jenkins(){
 
 sudo mkdir /var/lib/jenkins/init.groovy.d
-sudo cp create-admin.groovy /var/lib/jenkins/init.groovy.d/
-sudo cp install-plugins.groovy /var/lib/jenkins/init.groovy.d/
-sudo cp unlock-jenkins.groovy /var/lib/jenkins/init.groovy.d/
+sudo cp 02-create-admin.groovy /var/lib/jenkins/init.groovy.d/
+sudo cp 03-install-plugins.groovy /var/lib/jenkins/init.groovy.d/
+sudo cp 01-unlock-jenkins.groovy /var/lib/jenkins/init.groovy.d/
 
 sudo systemctl restart jenkins
 

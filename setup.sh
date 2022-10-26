@@ -16,7 +16,6 @@ sudo apt update && sudo apt install vagrant
 sudo mkdir /etc/vbox/
 sudo touch /etc/vbox/networks.conf
 echo "* 0.0.0.0/0 ::/0" | sudo tee -a /etc/vbox/networks.conf
-
 echo '**********vagrant installed*********'
 
 }

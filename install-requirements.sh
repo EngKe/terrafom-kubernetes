@@ -9,19 +9,15 @@ sudo apt-get install wget
 
 install_kubectl(){
 
-sudo apt-get update
 sudo apt-get install -y ca-certificates curl
 sudo curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
 echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
-sudo apt-get update
-sudo apt-get install -y kubectl
-echo -e '\e[1;31m**********kubectl installed**********\033[0m'
+
 
 }
 
 install_docker(){
 
-sudo apt-get update
 sudo apt-get install -y \
     ca-certificates \
     curl \
@@ -32,11 +28,6 @@ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o 
 echo \
   "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
   $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-sudo apt-get update
-sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin
-sudo usermod -aG docker $USER
-su - $USER
-echo -e '\e[1;31m**********docker installed**********\033[0m'
 
 }
 
@@ -45,11 +36,7 @@ install_helm(){
 curl https://baltocdn.com/helm/signing.asc | gpg --dearmor | sudo tee /usr/share/keyrings/helm.gpg > /dev/null
 sudo apt-get install apt-transport-https --yes
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/helm.gpg] https://baltocdn.com/helm/stable/debian/ all main" | sudo tee /etc/apt/sources.list.d/helm-stable-debian.list
-sudo apt-get update
-sudo apt-get install helm
-helm repo add bitnami https://charts.bitnami.com/bitnami
-helm repo update
-echo -e '\e[1;31m**********helm installed*********\033[0m'
+
 }
 
 install_kind(){
@@ -62,34 +49,54 @@ echo -e '\e[1;31m**********kind installed*********\033[0m'
 
 install_terraform(){
 
-sudo apt-get update && sudo apt-get install -y gnupg software-properties-common
+sudo apt-get install -y gnupg software-properties-common
 wget -O- https://apt.releases.hashicorp.com/gpg | \
     gpg --dearmor | \
     sudo tee /usr/share/keyrings/hashicorp-archive-keyring.gpg
 echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] \
     https://apt.releases.hashicorp.com $(lsb_release -cs) main" | \
     sudo tee /etc/apt/sources.list.d/hashicorp.list
-sudo apt update
-sudo apt-get install terraform
-echo -e '\e[1;31m**********terraform installed*********\033[0m'
 }
 
 install_postgresql(){
 
 sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
 wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
-sudo apt-get update
-sudo apt-get -y install postgresql
 
-echo -e '\e[1;31m**********postgresql installed*********\033[0m'
 }
 
 install_redis(){
 
 curl -fsSL https://packages.redis.io/gpg | sudo gpg --dearmor -o /usr/share/keyrings/redis-archive-keyring.gpg
 echo "deb [signed-by=/usr/share/keyrings/redis-archive-keyring.gpg] https://packages.redis.io/deb $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/redis.list
+
+}
+
+install_all(){
+
 sudo apt-get update
+
+sudo apt-get install -y kubectl
+echo -e '\e[1;31m**********kubectl installed**********\033[0m'
+
+sudo apt-get install helm
+helm repo add bitnami https://charts.bitnami.com/bitnami
+helm repo update
+echo -e '\e[1;31m**********helm installed*********\033[0m'
+
+sudo apt-get install terraform
+echo -e '\e[1;31m**********terraform installed*********\033[0m'
+
+sudo apt-get -y install postgresql
+echo -e '\e[1;31m**********postgresql installed*********\033[0m'
+
+sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin
+sudo usermod -aG docker $USER
+sudo su - $USER
+echo -e '\e[1;31m**********docker installed**********\033[0m'
+
 sudo apt-get install -y redis
+echo -e '\e[1;31m**********redis installed*********\033[0m'
 
 }
 
@@ -101,3 +108,4 @@ install_terraform
 install_postgresql
 install_docker
 install_redis
+install_all
