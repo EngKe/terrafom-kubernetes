@@ -19,6 +19,7 @@ Vagrant.configure("2") do |config|
 
     config.vm.provision "shell", path: "install-requirements.sh"
     config.vm.provision "shell", path: "terraform/create-cluster.sh"
+    config.vm.provision "shell", path: "jenkins/create-password.sh"
     config.vm.provision "shell", path: "jenkins/jenkins-setup.sh"
     config.vm.provision "shell", path: "jenkins/run-pipeline.sh"
     config.vm.provision "shell", path: "database/database-infrastructures.sh"
