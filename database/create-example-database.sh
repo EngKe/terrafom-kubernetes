@@ -21,8 +21,4 @@ VALUES
 
 }
 
-create_redis_table(){
-
-}
-
 create_postgresql_table
