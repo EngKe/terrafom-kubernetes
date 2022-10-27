@@ -38,7 +38,3 @@ echo '**********jenkins configured**********'
 
 install_jenkins
 configure_jenkins
-
-sudo mkdir /home/vagrant/.kube
-sudo cp /root/.kube/config /home/vagrant/.kube/config
-sudo chown vagrant /home/vagrant/.kube/config
