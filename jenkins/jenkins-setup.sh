@@ -21,6 +21,10 @@ echo '**********jenkins installed**********'
 
 configure_jenkins(){
 
+sudo mkdir -p /var/lib/jenkins/.kube
+sudo cp /root/.kube/config /var/lib/jenkins/.kube/config
+sudo chown jenkins:jenkins /var/lib/jenkins/.kube/config
+
 sudo mkdir /var/lib/jenkins/init.groovy.d
 sudo cp 02-create-admin.groovy /var/lib/jenkins/init.groovy.d/
 sudo cp 03-install-plugins.groovy /var/lib/jenkins/init.groovy.d/
@@ -34,3 +38,7 @@ echo '**********jenkins configured**********'
 
 install_jenkins
 configure_jenkins
+
+sudo mkdir /home/vagrant/.kube
+sudo cp /root/.kube/config /home/vagrant/.kube/config
+sudo chown vagrant /home/vagrant/.kube/config
