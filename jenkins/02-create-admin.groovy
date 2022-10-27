@@ -7,7 +7,7 @@ println "--> creating admin user"
 //def adminPassword = System.getenv("ADMIN_PASSWORD")
 
 def adminUsername = "admin"
-def adminPassword = "admin123"
+def adminPassword = "changemepls"
 
 assert adminPassword != null : "No ADMIN_USERNAME env var provided, but required"
 assert adminPassword != null : "No ADMIN_PASSWORD env var provided, but required"
