@@ -1,0 +1,9 @@
+[Unit]
+Description=kubectl port-forward service
+
+[Service]
+User=vagrant
+ExecStart=/bin/bash /home/vagrant/port-forward.sh
+
+[Install]
+WantedBy=multi-user.targe
