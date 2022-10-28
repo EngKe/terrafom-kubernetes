@@ -10,8 +10,8 @@ import jenkins.model.*
 import hudson.security.*
 
 final List<String> REQUIRED_PLUGINS = [
-        "workflow-job",
-        "workflow-cps",
+        "workflow-aggregator",
+        "ws-cleanup",
 ]
 
 if (Jenkins.instance.pluginManager.plugins.collect {
