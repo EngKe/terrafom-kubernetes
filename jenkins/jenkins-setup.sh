@@ -11,7 +11,7 @@ sudo apt-get update
 sudo apt-get install -y jenkins
 
 sudo mkdir /etc/systemd/system/jenkins.service.d
-echo -e "[Service]\nTimeoutStartSec=600" | sudo tee /etc/systemd/system/jenkins.service.d/startup-timeout.conf
+echo -e "[Service]\nTimeoutStartSec=900" | sudo tee /etc/systemd/system/jenkins.service.d/startup-timeout.conf
 
 sudo systemctl daemon-reload
 #sudo systemctl restart jenkins
