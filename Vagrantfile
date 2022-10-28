@@ -16,7 +16,7 @@ Vagrant.configure("2") do |config|
     config.vm.provision "file", source: "jenkins/pipeline.xml", destination: "$HOME/"
     config.vm.provision "file", source: "database/postgresql-test.sh", destination: "$HOME/"
     config.vm.provision "file", source: "database/redis-test.sh", destination: "$HOME/"
-    config.vm.provision "file", source: "database/port-forward.service", destination: "/etc/systemd/system"
+    config.vm.provision "file", source: "database/port-forward.service", destination: "$HOME/"
     config.vm.provision "file", source: "database/port-forward.sh", destination: "$HOME/"
 
     config.vm.provision "shell", path: "install-requirements.sh"
