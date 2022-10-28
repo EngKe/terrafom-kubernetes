@@ -70,15 +70,8 @@ install_packages(){
     aptgethelper install $PACKAGE_LIST
 }
 
-install_helm_repo(){
-sudo su jenkins
-helm repo add bitnami https://charts.bitnami.com/bitnami
-helm repo update
-
-}
 
 fix_dns
 install_kind
 add_repositories
 install_packages
-install_helm_repo

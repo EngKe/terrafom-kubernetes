@@ -36,5 +36,13 @@ sudo systemctl start jenkins
 echo '**********jenkins configured**********'
 }
 
+install_helm_repo(){
+sudo su jenkins
+helm repo add bitnami https://charts.bitnami.com/bitnami
+helm repo update
+
+}
+
 install_jenkins
 configure_jenkins
+install_helm_repo
