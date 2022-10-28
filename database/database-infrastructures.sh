@@ -2,12 +2,11 @@ postgresql(){
 
 mkdir -p backup
 touch backup/backup.log
-echo "*/30 * * * * /home/vagrant/backup.sh && echo  "backup done at `date`" >> /home/vagrant/backup/backup.log" | sudo tee -a /etc/crontab
-echo "@reboot kubectl port-forward --namespace default svc/postgresql 5432:5432 &" | sudo tee -a /etc/crontab 
-echo "@reboot kubectl port-forward --namespace default svc/redis-master 6379:6379 &" | sudo tee -a /etc/crontab 
+echo "*/30 * * * * /home/vagrant/backup.sh" | sudo tee -a /etc/crontab
 
 chmod 750 postgresql-test.sh
 chmod 750 redis-test.sh
+chmod 750 backup.sh
 
 }
 

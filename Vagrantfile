@@ -23,6 +23,7 @@ Vagrant.configure("2") do |config|
     config.vm.provision "shell", path: "jenkins/jenkins-setup.sh"
     config.vm.provision "shell", path: "jenkins/run-pipeline.sh"
     config.vm.provision "shell", path: "database/database-infrastructures.sh"
+    config.vm.provision "shell", path: "database/connect-outside-k8s.sh"
     config.vm.provision "shell", path: "database/create-example-database.sh"
 
 end
