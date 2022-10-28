@@ -13,9 +13,7 @@
                 sh &apos;helm repo add bitnami https://charts.bitnami.com/bitnami&apos;
                 sh &apos;helm repo update&apos;
                 sh &apos;helm upgrade --install postgresql bitnami/postgresql&apos;
-                sh &apos;kubectl port-forward --namespace default svc/postgresql 5432:5432 &amp;&apos;
                 sh &apos;helm upgrade --install redis bitnami/redis&apos;
-                sh &apos;kubectl port-forward --namespace default svc/redis-master 6379:6379 &amp;&apos;
                 sh &apos;**********app deployed**********&apos;
             }
         }
