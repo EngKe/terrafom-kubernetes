@@ -1,4 +1,4 @@
-To start the system run the setup.sh file with './setup.sh'
+To start the system change directory to theProject and run the setup.sh file with './setup.sh'
 
 When you run setup.sh script, wget, virtualbox and vagrant started to install and with and the command 'vagrant up' runs, VM starts to set up the system
 It may take time for the system to be ready.
