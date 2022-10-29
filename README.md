@@ -1,7 +1,7 @@
 To start the system change directory to theProject and run the setup.sh file with './setup.sh'
 
-When you run setup.sh script, wget, virtualbox and vagrant started to install and with and the command 'vagrant up' runs, VM starts to set up the system
-It may take time for the system to be ready.
+When you run setup.sh script, wget, virtualbox and vagrant started to install and VM starts and set up the system.
+It may take time for the system to be ready. When the system ready, you will be logged vagrant VM automatically.
 
 Explanations for files:
 
@@ -24,9 +24,9 @@ database folder:
 
     connect-outside-k8s.sh -> This script enables port-forward.service
 
-    postgresql-test.sh -> This script checks postgresql wheter accepting connections from 127.0.0.1:5432 or not
+    postgresql-test.sh -> This script chechks postgresql wheter accepting connections from 127.0.0.1:5432 or not. If it is accepting connections, the output will be "127.0.0.1:5432 - accepting connections". To run the test run the command "./postgresql-test.sh" after logged vagrnat VM.
 
-    redis-test.sh -> This script checks whether the Redis server is running or not
+    redis-test.sh -> This script checks whether the Redis is running or not. If the Redis running, the output will be "PONG". To run the test run the command "./redis-test.sh" after logged vagrnat VM.
 
 jenkins folder:
 
