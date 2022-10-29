@@ -6,4 +6,4 @@ User=vagrant
 ExecStart=/bin/bash /home/vagrant/port-forward.sh
 
 [Install]
-WantedBy=multi-user.targe
+WantedBy=multi-user.target
