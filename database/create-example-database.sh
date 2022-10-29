@@ -29,5 +29,13 @@ REDISCLI_AUTH="$REDIS_PASSWORD" redis-cli -h 127.0.0.1 -p 6379 -n 0 SET testkey 
 
 }
 
+until  kubectl -n default get pod -o jsonpath='{range .items[*]}{.status.containerStatuses[*].ready.true}{.metadata.name}{ "\n"}{end}' | grep redis-replicas-2
+    do
+    echo 'pods are not running yet'
+    sleep 10
+    done
+
+echo "\e[1;31m**********creating test database and table in postgresql and setting test key in redis*********\033[0m"
+sleep 5
 create_postgresql_table
 redis_set

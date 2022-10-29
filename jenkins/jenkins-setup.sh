@@ -16,11 +16,12 @@ echo -e "[Service]\nTimeoutStartSec=900" | sudo tee /etc/systemd/system/jenkins.
 sudo systemctl daemon-reload
 #sudo systemctl restart jenkins
 sudo systemctl enable jenkins
-echo '**********jenkins installed**********'
+echo "\e[1;31m**********jenkins installed**********\033[0m"
 }
 
 configure_jenkins(){
 
+echo "\e[1;31m**********jenkins configuring*********\033[0m"
 sudo mkdir -p /var/lib/jenkins/.kube
 sudo cp /root/.kube/config /var/lib/jenkins/.kube/config
 sudo chown jenkins:jenkins /var/lib/jenkins/.kube/config
@@ -33,7 +34,7 @@ sudo cp 01-unlock-jenkins.groovy /var/lib/jenkins/init.groovy.d/
 sudo systemctl restart jenkins
 sudo systemctl stop jenkins
 sudo systemctl start jenkins
-echo '**********jenkins configured**********'
+echo "\e[1;31m**********jenkins configured*********\033[0m"
 }
 
 install_jenkins
