@@ -4,7 +4,7 @@ when you run setup.sh script, wget, virtualbox and vagrant started to install an
 
 explanations for files:
 
-###Vagrantfile: This file contains configuration of Vm and files to copy to vm and shell scipts to run
+### Vagrantfile: This file contains configuration of Vm and files to copy to vm and shell scipts to run
 
 install-requirements.sh -> This script includes installtions of these: 
 wget, kubectl, helm, kind, terraform, postgresql-cli, docker, redis
