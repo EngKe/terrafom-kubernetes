@@ -1,10 +1,10 @@
-to start all system run the setup.sh file with './setup.sh'
+To start all system run the setup.sh file with './setup.sh'
 
-when you run setup.sh script, wget, virtualbox and vagrant started to install and with the command 'vagrant up' runs, start to setup all system
+When you run setup.sh script, wget, virtualbox and vagrant started to install and with the command 'vagrant up' runs, start to setup all system
 
-explanations for files:
+Explanations for files:
 
-### Vagrantfile: This file contains configuration of Vm and files to copy to vm and shell scipts to run
+Vagrantfile: This file contains configuration of Vm and files to copy to vm and shell scipts to run
 
 install-requirements.sh -> This script includes installtions of these: 
 wget, kubectl, helm, kind, terraform, postgresql-cli, docker, redis

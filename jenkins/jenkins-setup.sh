@@ -14,7 +14,6 @@ install_jenkins(){
     echo -e "[Service]\nTimeoutStartSec=900" | sudo tee /etc/systemd/system/jenkins.service.d/startup-timeout.conf  
 
     sudo systemctl daemon-reload
-    #sudo systemctl restart jenkins
     sudo systemctl enable jenkins
     echo -e "\e[1;31m**********jenkins installed**********\033[0m"
 }

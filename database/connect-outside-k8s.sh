@@ -1,3 +1,5 @@
+#!/bin/sh
+
 enable_port_forward_service(){
     sudo cp port-forward.service /etc/systemd/system
     chmod 750 port-forward.sh

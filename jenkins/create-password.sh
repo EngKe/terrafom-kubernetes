@@ -1,3 +1,5 @@
+#!/bin/sh
+
 create_password(){
 
     export PASSWORD=$(tr -cd '[:alnum:]' < /dev/urandom | fold -w10 | head -n1)

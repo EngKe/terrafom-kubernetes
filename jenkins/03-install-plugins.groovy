@@ -21,9 +21,7 @@ if (Jenkins.instance.pluginManager.plugins.collect {
   }.each {
     it.get()
   }
-  //Jenkins.instance.restart()
   println 'Run this script again after restarting to create the jobs!'
-  //throw new RestartRequiredException(null)
 }
 
 println "Plugins were installed successfully"

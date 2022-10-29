@@ -66,7 +66,7 @@ add_repositories(){
 }
 
 install_packages(){
-    PACKAGE_LIST="kubectl helm terraform postgresql-client docker-ce docker-ce-cli containerd.io docker-compose-plugin redis"
+    PACKAGE_LIST="kubectl helm terraform postgresql-client docker-ce docker-ce-cli containerd.io redis"
     #aptgethelper install $PACKAGE_LIST
 
     for i in $PACKAGE_LIST
