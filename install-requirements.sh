@@ -1,18 +1,13 @@
 #!/bin/sh
 
-############ wrapper over apt-get to download files (retries if download fails) and then perform action.  
-############ usage example:  aptgethelper install "nethogs rar -y -qq --force-yes"
 aptgethelper(){
     local __cmd=$1
     shift
     local __args=$@
     local retry=10 count=0
     set +x
-    # retry at most $retry times, waiting 1 minute between each try
         while true; do
 
-        # Tell apt-get to only download packages for upgrade, and send 
-        # signal 15 (SIGTERM) if it takes more than 10 minutes
             if timeout --kill-after=60 60 apt-get -d $__cmd --assume-yes $__args; then
                 break
             fi
@@ -23,8 +18,6 @@ aptgethelper(){
             sleep 60
         done
 
-    # At this point there should be no more packages to download, so 
-    # install them.
     apt-get $__cmd --assume-yes $__args
 }
 
@@ -67,7 +60,6 @@ add_repositories(){
 
 install_packages(){
     PACKAGE_LIST="kubectl helm terraform postgresql-client docker-ce docker-ce-cli containerd.io redis"
-    #aptgethelper install $PACKAGE_LIST
 
     for i in $PACKAGE_LIST
     do
@@ -75,7 +67,6 @@ install_packages(){
     echo -e "\e[1;31m**********$i installed*********\033[0m"
     done
 }
-
 
 fix_dns
 install_kind
