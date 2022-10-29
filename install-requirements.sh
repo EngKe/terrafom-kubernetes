@@ -73,7 +73,7 @@ install_packages(){
 
     for i in "${arr[@]}"
     do
-    aptgethelper $i
+    aptgethelper install $i
     echo -e "\e[1;31m**********$i installed*********\033[0m"
     done
 
