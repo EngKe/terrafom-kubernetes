@@ -15,7 +15,6 @@ install_vagrant(){
 
     sudo mkdir /etc/vbox/
     sudo touch /etc/vbox/networks.conf
-    echo "* 0.0.0.0/0 ::/0" | sudo tee -a /etc/vbox/networks.conf
     echo -e "\e[1;31m**********vagrant installed*********\033[0m"
 
 }

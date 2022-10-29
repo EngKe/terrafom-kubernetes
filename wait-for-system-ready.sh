@@ -4,6 +4,6 @@ until  kubectl -n default get pod -o jsonpath='{range .items[*]}{.status.contain
     sleep 10
     done
 
-echo "\e[1;31m*********all pods are ready you can run test now***********\033[0m"
+echo -e "\e[1;31m*********all pods are ready you can run tests now***********\033[0m"
 sleep 5
  
