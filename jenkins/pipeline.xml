@@ -1,5 +1,14 @@
 <?xml version='1.1' encoding='UTF-8'?>
 <flow-definition plugin="workflow-job@1249.v7d974144cc14">
+  <actions>
+    <org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobAction plugin="pipeline-model-definition@2.2118.v31fd5b_9944b_5"/>
+    <org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobPropertyTrackerAction plugin="pipeline-model-definition@2.2118.v31fd5b_9944b_5">
+      <jobProperties/>
+      <triggers/>
+      <parameters/>
+      <options/>
+    </org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobPropertyTrackerAction>
+  </actions>
   <description></description>
   <keepDependencies>false</keepDependencies>
   <properties/>
@@ -14,7 +23,8 @@
                 sh &apos;helm repo update&apos;
                 sh &apos;helm upgrade --install postgresql bitnami/postgresql&apos;
                 sh &apos;helm upgrade --install redis bitnami/redis&apos;
-                sh &apos;**********app deployed**********&apos;
+                sh &apos;echo **********app deployed**********&apos;
+
             }
         }
     }
