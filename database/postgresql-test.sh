@@ -1,8 +1,6 @@
 postgresql_test(){
 
-export POSTGRES_PASSWORD=$(kubectl get secret --namespace default postgresql -o jsonpath="{.data.postgres-password}" | base64 -d)
-PGPASSWORD="$POSTGRES_PASSWORD" psql --host 127.0.0.1 -U postgres -d postgres -p 5432 -c "SELECT * FROM mytable LIMIT 5;"
-
+    pg_isready -d postgres -h 127.0.0.1 -p 5432 -U postgres
 }
 
 postgresql_test

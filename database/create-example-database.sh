@@ -1,3 +1,6 @@
+pg_isready -d postgres -h 127.0.0.1 -p 5432 -U postgres                     
+!!!!!!!!!!!!!!delete meeeeeeeeéééééééééé
+!!!!!!!!!!!!!!delete meeeeeeeeéééééééééé
 create_postgresql_table(){
 
 export POSTGRES_PASSWORD=$(kubectl get secret --namespace default postgresql -o jsonpath="{.data.postgres-password}" | base64 -d)

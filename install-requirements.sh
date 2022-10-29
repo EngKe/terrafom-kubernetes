@@ -37,7 +37,7 @@ install_kind(){
     curl -fsSLo ./kind https://kind.sigs.k8s.io/dl/v0.16.0/kind-linux-amd64
     chmod +x ./kind
     sudo mv ./kind /usr/local/bin/kind
-    echo "\e[1;31m**********kind installed*********\033[0m"
+    echo -e "\e[1;31m**********kind installed*********\033[0m"
 }
 
 add_repositories(){
@@ -66,8 +66,17 @@ add_repositories(){
 }
 
 install_packages(){
-    PACKAGE_LIST="kubectl helm terraform postgresql-client docker-ce docker-ce-cli containerd.io docker-compose-plugin redis"
-    aptgethelper install $PACKAGE_LIST
+    #PACKAGE_LIST="kubectl helm terraform postgresql-client docker-ce docker-ce-cli containerd.io docker-compose-plugin redis"
+    #aptgethelper install $PACKAGE_LIST
+
+    declare -a arr=("kubectl" "helm" "terraform" "postgresql-client" "docker-ce" "docker-ce-cli" "containerd.io" "docker-compose-plugin" "redis")
+
+    for i in "${arr[@]}"
+    do
+    aptgethelper $i
+    echo -e "\e[1;31m**********$i installed*********\033[0m"
+    done
+
 }
 
 
