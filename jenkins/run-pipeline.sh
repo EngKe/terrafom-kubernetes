@@ -6,6 +6,7 @@ wget http://localhost:8080/jnlpJars/jenkins-cli.jar
 
 create_pipeline(){
 
+sudo systemctl restart jenkins
 export PASSWORD=$(kubectl get secret jenkinsadmin -o jsonpath='{.data.password}' | base64 --decode)
 java -jar jenkins-cli.jar -s http://localhost:8080/ -auth admin:$PASSWORD create-job pipeline < pipeline.xml
 
