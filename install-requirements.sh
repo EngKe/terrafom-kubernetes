@@ -66,17 +66,14 @@ add_repositories(){
 }
 
 install_packages(){
-    #PACKAGE_LIST="kubectl helm terraform postgresql-client docker-ce docker-ce-cli containerd.io docker-compose-plugin redis"
+    PACKAGE_LIST="kubectl helm terraform postgresql-client docker-ce docker-ce-cli containerd.io docker-compose-plugin redis"
     #aptgethelper install $PACKAGE_LIST
 
-    declare -a arr=("kubectl" "helm" "terraform" "postgresql-client" "docker-ce" "docker-ce-cli" "containerd.io" "docker-compose-plugin" "redis")
-
-    for i in "${arr[@]}"
+    for i in $PACKAGE_LIST
     do
     aptgethelper install $i
     echo -e "\e[1;31m**********$i installed*********\033[0m"
     done
-
 }
 
 

@@ -6,6 +6,7 @@ install_jenkinscli(){
 
 create_pipeline(){
 
+    echo -e "\e[1;31m**********creating jenkins job*********\033[0m"
     sudo systemctl restart jenkins
     export PASSWORD=$(kubectl get secret jenkinsadmin -o jsonpath='{.data.password}' | base64 --decode)
     java -jar jenkins-cli.jar -s http://localhost:8080/ -auth admin:$PASSWORD create-job pipeline < pipeline.xml
@@ -15,7 +16,7 @@ create_pipeline(){
 build_pipeline(){
 
     export PASSWORD=$(kubectl get secret jenkinsadmin -o jsonpath='{.data.password}' | base64 --decode)
-j   ava -jar jenkins-cli.jar -s http://localhost:8080/ -auth admin:$PASSWORD build pipeline
+    java -jar jenkins-cli.jar -s http://localhost:8080/ -auth admin:$PASSWORD build pipeline
 
 }
 install_jenkinscli

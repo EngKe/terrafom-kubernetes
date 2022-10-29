@@ -41,6 +41,7 @@ jenkins folder:
     run-pipeline.sh -> this script creates job from pipeline.xml and builds job by jenkins cli
 
 terrafrom folder:
+
     kind-cluster.tf -> This file configuration of k8s cluster, the clusert contains one control-plane and one worker node.
 
     create-cluster.sh -> This script includes local k8s cluster installation via terraform and copies config file to make config accesible by vagrant user
