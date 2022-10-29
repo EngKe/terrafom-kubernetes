@@ -8,7 +8,7 @@ Explanations for files:
 Vagrantfile: This file contains the configuration of the VM and files to copy to the VM and shell scripts to run.
 
 install-requirements.sh -> This script includes installations of these: 
-wget, kubectl, helm, kind, terraform, postgresql-cli, docker, redis
+wget, kubectl, helm, kind, terraform, postgresql-cli, docker and redis.
 
 wait-for-system-ready.sh -> This script show status of pods ready or not.
 
@@ -16,13 +16,13 @@ database folder:
 
     backup.sh -> This script backups postgresql data
 
-    database-infrastructures.sh -> This script makes backup.sh, redis-test.sh and postgresql.sh executable and provides to run backup.sh every day 
+    database-infrastructures.sh -> This script makes backup.sh, redis-test.sh and postgresql.sh executable and provides to run backup.sh every day at 1 am.
 
-    port-forward.sh -> This script allows to users connect PostgreSQL and Redis outside Kubernetes with port-forward after all pods are ready
+    port-forward.sh -> This script allows to users connect PostgreSQL and Redis outside Kubernetes with port-forward after all pods are ready.
 
-    port-forward.service -> This file includes service configuration for script port-foward.sh
+    port-forward.service -> This file includes service configuration for script port-foward.sh.
 
-    connect-outside-k8s.sh -> This script enables port-forward.service
+    connect-outside-k8s.sh -> This script enables port-forward.service.
 
     postgresql-test.sh -> This script chechks postgresql wheter accepting connections from 127.0.0.1:5432 or not. If it is accepting connections, the output will be "127.0.0.1:5432 - accepting connections". To run the test run the command "./postgresql-test.sh" after logged vagrnat VM.
 
@@ -47,4 +47,4 @@ terrafrom folder:
 
     kind-cluster.tf -> This file configuration of k8s cluster, the cluster contains one control-plane and one worker node.
 
-    create-cluster.sh -> This script includes local k8s cluster installation via terraform and copies config file to make config accessible by the vagrant user
+    create-cluster.sh -> This script includes local k8s cluster installation via terraform and copies config file to make config accessible by the vagrant user.
